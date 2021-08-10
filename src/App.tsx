@@ -15,10 +15,16 @@ function App() {
     })
   }
 
+  const removeTodo = (todoId: string) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.id !== todoId)
+    })
+  }
+
   return (
     <div className="App">
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos onRemoveTodo={removeTodo} items={todos} />
     </div>
   );
 }
